@@ -8,5 +8,6 @@ import dev.hotel.entite.Chambre;
 
 public interface ChambreRepository extends JpaRepository<Chambre,UUID>{
 
+	
     
 }

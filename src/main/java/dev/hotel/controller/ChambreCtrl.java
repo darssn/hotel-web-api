@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.hotel.entite.Chambre;
 import dev.hotel.repository.ChambreRepository;
-import dev.hotel.repository.HotelRepository;
+
 
 @RestController
 public class ChambreCtrl {
@@ -19,11 +19,11 @@ public class ChambreCtrl {
     private static final Logger LOG = LoggerFactory.getLogger(ChambreCtrl.class);
 
     private ChambreRepository chambreRepository;
-    private HotelRepository hotelRepository;
 
-    public ChambreCtrl(ChambreRepository chambreRepository, HotelRepository hotelRepository) {
+
+    public ChambreCtrl(ChambreRepository chambreRepository) {
         this.chambreRepository = chambreRepository;
-        this.hotelRepository = hotelRepository;
+       
     }
 
 

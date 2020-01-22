@@ -1,5 +1,7 @@
 package dev.hotel.entite;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,6 +21,13 @@ public class Chambre extends BaseEntite {
 
     public Chambre() {
     }
+    
+    public Chambre(UUID uuid){    	
+    	super();
+    	this.setUuid(uuid);
+    }
+    
+
 
     public Chambre(String numero, Float surfaceEnM2, Hotel hotel) {
 
