@@ -1,0 +1,93 @@
+
+<!doctype html>
+
+<html lang="fr">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-tofit=
+no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+<title>TP1 - Web</title>
+</head>
+<script type="text/javascript" src="function.js"></script>
+
+
+<body>
+
+	<main class="container-fluid" >
+
+	<form id="formulaire" action="" method="">
+
+
+		<div class="row" style="margin-top: 20px">
+			<div class="col-12 col-xl-3">
+				<label for="listClient">Liste Client : </label>
+			</div>
+			<div class="col-12 col-xl-5">
+
+				<select id="listClient" name="listClient" class="form-control">
+
+				</select>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 20px">
+			<fieldset id="checkChambre">
+			
+			</fieldset>
+		</div>
+
+
+
+		<div class="row" style="margin-top: 10px">
+			<div class="col">
+				<div class="btn btn-primary" onclick="sendJSON();">Reserver</div>
+			</div>
+		</div>
+
+
+
+	</form>
+
+	</main>
+</body>
+<script>
+function sendJSON(){
+	
+	var dateDebut = "2019-10-01";
+	var dateFin = "2019-10-10";
+	var client = document.getElementById("listClient").value;
+	var ch = [];
+	
+	
+	 var chambres = document.getElementsByName('chambre');
+	   var len = chambres.length;
+	    for (var i=0; i<len; i++) {
+	    	
+	    	if(chambres[i].checked){
+	    		ch.push(chambres[i].value);
+	    	}
+	    }
+	    
+	   var json=JSON.stringify({ dateDebut:dateDebut,dateFin:dateFin,clientId:client,chambres:ch });
+	    	
+	   	var xhr = new XMLHttpRequest();
+	    var url = "reservations";
+	    xhr.open("POST",url, true);
+	    xhr.setRequestHeader("Content-type", "application/json");
+
+	    xhr.send(json);
+	        
+	    
+	
+}	
+</script>
+
+</html>

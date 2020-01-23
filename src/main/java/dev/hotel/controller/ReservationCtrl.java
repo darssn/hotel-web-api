@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.hotel.entite.Chambre;
@@ -60,6 +61,14 @@ public class ReservationCtrl {
         return reservationRepository.findAll();
 
     }
+    /*
+    @RequestMapping(method = RequestMethod.POST, path = "reserver")
+    public void reserver(@RequestParam("listClient") UUID clientUuid,@RequestParam("chambre")List<UUID>liste) {
+    	
+
+    }
+    */
+    
 
     @RequestMapping(method = RequestMethod.POST, path = "reservations")
     public ResponseEntity<String> creerReservations(@RequestBody ReservationRequete reservation) {
@@ -87,13 +96,13 @@ public class ReservationCtrl {
         List<Chambre> lC = new ArrayList<>();
         
         for(UUID uuid : reservation.getChambres()){
-        	lC.add(new Chambre(uuid));
-        	
+        	lC.add(new Chambre(uuid));       	
         }
         res.setChambres(lC);
         res.setClient(clientRepository.findById(reservation.getClientId()).get());
         reservationRepository.save(res);
 
+        LOG.info("Reservation crée");
         return ResponseEntity.status(HttpStatus.CREATED).body("Reservation Enregistrée");
 
     }

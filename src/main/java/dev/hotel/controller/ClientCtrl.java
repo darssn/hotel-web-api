@@ -43,6 +43,18 @@ public class ClientCtrl {
      * LOG.info("Affichage liste Clients"); return list; }
      * 
      */
+    
+    @RequestMapping(method = RequestMethod.GET, path = "allclients")
+    public List<Client> listAllClient() {
+
+        LOG.info("Affichage liste Clients");
+        
+        List<Client> liste = this.clientRepository.findAll();
+
+        return liste;
+    }
+    
+    
     @RequestMapping(method = RequestMethod.GET, path = "clients")
     public List<Client> listClientNom(@RequestParam("nom") String nom) {
 
