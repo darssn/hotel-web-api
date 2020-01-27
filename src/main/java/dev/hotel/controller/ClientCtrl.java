@@ -62,7 +62,7 @@ public class ClientCtrl {
         Client c = null;
         
         		if (this.clientRepository.findByNom(nom).isPresent()){
-        			c = this.clientRepository.findByNom(nom).get();       			
+        			c  = this.clientRepository.findByNom(nom).get();       			
         		}
 
         return c;

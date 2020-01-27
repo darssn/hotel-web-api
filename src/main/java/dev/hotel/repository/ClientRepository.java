@@ -9,6 +9,6 @@ public interface ClientRepository extends JpaRepository<Client,UUID>{
 
 Optional <Client> findByNom(String nom);
 
-Optional <Client> findByNomAndPrenoms(String nom,String prenoms);
+Optional <Client> findByNomAndPrenoms(String nom,String prenoms) ;
 
 }

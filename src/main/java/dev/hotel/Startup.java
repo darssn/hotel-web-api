@@ -40,7 +40,7 @@ public class Startup {
 		super();
 		this.clientRepository = clientRepository;
 		this.hotelRepository = hotelRepository;
-		this.chambreRepository = chambreRepository;
+		this.chambreRepository =  chambreRepository;
 		this.reservationRepository = reservationRepository;
 	}
 

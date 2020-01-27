@@ -9,6 +9,6 @@ import dev.hotel.entite.Hotel;
 
 public interface HotelRepository extends JpaRepository<Hotel,UUID>{
 
-    Optional <Hotel> findByNom(String nom);
+    Optional <Hotel> findByNom(String nom) ;
     
 }
