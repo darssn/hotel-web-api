@@ -56,12 +56,16 @@ public class ClientCtrl {
     
     
     @RequestMapping(method = RequestMethod.GET, path = "clients")
-    public List<Client> listClientNom(@RequestParam("nom") String nom) {
+    public Client ClientNom(@RequestParam("nom") String nom) {
 
         LOG.info("Affichage liste Clients");
-        List<Client> liste = this.clientRepository.findByNom(nom);
+        Client c = null;
+        
+        		if (this.clientRepository.findByNom(nom).isPresent()){
+        			c = this.clientRepository.findByNom(nom).get();       			
+        		}
 
-        return liste;
+        return c;
     }
   
 
@@ -70,7 +74,7 @@ public class ClientCtrl {
 
         
 
-        if (clientRepository.findByNomAndPrenoms(client.getNom(),client.getPrenoms()).isEmpty()) {
+        if (clientRepository.findByNomAndPrenoms(client.getNom(),client.getPrenoms()).isPresent()) {
 
             LOG.info("Client Enregistré");
             clientRepository.save(new Client(client.getNom(),client.getPrenoms()));

@@ -68,24 +68,24 @@ public class Startup {
 			this.hotelRepository.saveAll(hotels);
 		}
 		if (this.chambreRepository.count() == 0) {
-			List <Hotel> h1 = this.hotelRepository.findByNom("Ritz");
-			List <Hotel> h2 = this.hotelRepository.findByNom("Formule1");
+			Hotel h1 = this.hotelRepository.findByNom("Ritz").get();
+			Hotel h2 = this.hotelRepository.findByNom("Formule1").get();
 			List<Chambre> chambres = new ArrayList<>();
-			chambres.add(new Chambre("1", 20.0F, h1.get(0)));
-			chambres.add(new Chambre("2", 20.0F, h1.get(0)));
-			chambres.add(new Chambre("3A", 15.0F, h2.get(0)));
-			chambres.add(new Chambre("5A", 13.0F, h2.get(0)));
+			chambres.add(new Chambre("1", 20.0F, h1));
+			chambres.add(new Chambre("2", 20.0F, h1));
+			chambres.add(new Chambre("3A", 15.0F, h2));
+			chambres.add(new Chambre("5A", 13.0F, h2));
 			this.chambreRepository.saveAll(chambres);
 
 		}
 
 		if (this.reservationRepository.count() == 0) {
 			
-			List<Client> c1 = this.clientRepository.findByNomAndPrenoms("Pierre","Jean");
+			Client c1 = this.clientRepository.findByNomAndPrenoms("Pierre","Jean").get();
 			
 			List<Chambre> chambres = this.chambreRepository.findAll();
 			List<Reservation> reservations = new ArrayList<>();
-			reservations.add(new Reservation(LocalDate.of(2019, 12, 15), LocalDate.of(2019, 12, 17), c1.get(0), chambres));
+			reservations.add(new Reservation(LocalDate.of(2019, 12, 15), LocalDate.of(2019, 12, 17), c1, chambres));
 			this.reservationRepository.saveAll(reservations);
 		}
 
