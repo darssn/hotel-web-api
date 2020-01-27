@@ -61,13 +61,7 @@ public class ReservationCtrl {
         return reservationRepository.findAll();
 
     }
-    /*
-    @RequestMapping(method = RequestMethod.POST, path = "reserver")
-    public void reserver(@RequestParam("listClient") UUID clientUuid,@RequestParam("chambre")List<UUID>liste) {
-    	
 
-    }
-    */
     
 
     @RequestMapping(method = RequestMethod.POST, path = "reservations")
