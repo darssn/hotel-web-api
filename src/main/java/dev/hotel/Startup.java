@@ -38,7 +38,7 @@ public class Startup {
 	public Startup(ClientRepository clientRepository, HotelRepository hotelRepository,
 			ChambreRepository chambreRepository, ReservationRepository reservationRepository) {
 		super();
-		this.clientRepository = clientRepository ;
+		this.clientRepository = clientRepository;
 		this.hotelRepository = hotelRepository;
 		this.chambreRepository =  chambreRepository;
 		this.reservationRepository = reservationRepository;

@@ -49,7 +49,7 @@ public class ClientCtrl {
 
         LOG.info("Affichage liste Clients");
         
-        List<Client> liste =  this.clientRepository.findAll();
+        List<Client> liste = this.clientRepository.findAll();
 
         return liste;
     }
