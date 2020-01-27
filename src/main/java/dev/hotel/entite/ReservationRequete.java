@@ -3,11 +3,17 @@ package dev.hotel.entite;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import javax.validation.constraints.NotNull;
+
 public class ReservationRequete {
 
+	@NotNull
 	private LocalDate dateDebut;
+	@NotNull
 	private LocalDate dateFin;
+	@NotNull
 	private UUID clientId;
+	@NotNull
 	private UUID[] chambres ;
 
 	public ReservationRequete(LocalDate dateDebut, LocalDate dateFin, UUID clientUUID, UUID[] chambres) {

@@ -11,4 +11,8 @@ Optional <Client> findByNom(String nom);
 
 Optional <Client> findByNomAndPrenoms(String nom,String prenoms) ;
 
+boolean existsByNomAndPrenoms(String nom,String prenoms);
+
+boolean existsById(UUID uuid);
+
 }

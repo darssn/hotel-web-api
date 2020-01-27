@@ -19,7 +19,6 @@ import dev.hotel.repository.HotelRepository;
 import dev.hotel.repository.ReservationRepository;
 
 @Component
-
 public class Startup {
 
 	private static final Logger LOG = LoggerFactory.getLogger(Startup.class);

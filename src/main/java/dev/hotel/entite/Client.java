@@ -1,13 +1,16 @@
 package dev.hotel.entite;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+
+
 
 @Entity
 public class Client extends BaseEntite {
 
-
+	@NotNull
     private String nom;
-
+	@NotNull
     private String prenoms;
 
     public Client() {
