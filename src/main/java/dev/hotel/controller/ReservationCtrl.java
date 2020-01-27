@@ -69,7 +69,7 @@ public class ReservationCtrl {
 
         if (!clientRepository.findById(reservation.getClientId()).isPresent()) {
 
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Client non trouvé");
+            return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Client non trouvé");
 
         }
      
