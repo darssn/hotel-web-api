@@ -30,9 +30,10 @@ public class ClientService {
 		return clientRepository.findAll();
 	}
 
-	public Client clientByNom(String nom) {
+	public List<Client> clientByNom(String nom) {
 
-		return this.clientRepository.findByNom(nom).orElseThrow(() -> new RuntimeException("Nom non existant"));
+		return this.clientRepository.findByNom(nom);
+		
 	}
 	
 	public ResponseEntity<String> creerClient(Client client){

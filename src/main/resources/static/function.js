@@ -1,9 +1,5 @@
 
-					
-
-
-
-fetch('/clients').then(function(resp) {
+	fetch('/clients').then(function(resp) {
 
 		return resp.json();
 	}).then(

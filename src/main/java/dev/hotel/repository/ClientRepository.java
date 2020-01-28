@@ -7,7 +7,7 @@ import dev.hotel.entite.Client;
 
 public interface ClientRepository extends JpaRepository<Client,UUID>{
 
-Optional <Client> findByNom(String nom);
+List <Client> findByNom(String nom);
 
 Optional <Client> findByNomAndPrenoms(String nom,String prenoms) ;
 

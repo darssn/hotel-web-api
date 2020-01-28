@@ -40,7 +40,7 @@ public class ClientCtrl {
 	}
 
 	@GetMapping(params = "nom")
-	public Client ClientNom(@RequestParam("nom") @Valid String nom) {
+	public List<Client> ClientNom(@RequestParam("nom") @Valid String nom) {
 
 		LOG.info("Recherche du client : "+nom);
 		
